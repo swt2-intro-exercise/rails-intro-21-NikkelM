@@ -7,4 +7,9 @@ describe "Author page", type: :model do
         expect(author.last_name).to eq("Turing")
         expect(author.homepage).to eq("http://wikipedia.de/Alan_Turing")
     end
+
+    it "should be able to concatenate first and last name" do
+        author = Author.create(first_name:"Alan", last_name:"Turing", homepage:"http://wikipedia.de/Alan_Turing")
+        expect(author.name).to eq("Alan Turing")
+    end
   end
