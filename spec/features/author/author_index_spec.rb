@@ -6,6 +6,6 @@ describe "Author index page", type: :feature do
   end
 
   it "should contain a link to the create a new author page" do
-    expect(authors_path).to have_link 'New', href: new_author_path
+    expect(home_index_path).to have_link 'Author overview', href: authors_path
   end
 end
