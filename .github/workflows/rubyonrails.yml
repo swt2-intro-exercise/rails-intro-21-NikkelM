@@ -1,7 +1,5 @@
 name: Rails
-on:
-  push:
-    branches: [ main ]
+on: push
   workflow_dispatch:
 jobs:
   run-local-rails-tests:
