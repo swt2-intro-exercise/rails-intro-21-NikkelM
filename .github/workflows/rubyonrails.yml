@@ -1,6 +1,6 @@
 name: Rails
-on: push
-  workflow_dispatch:
+on: [push]
+
 jobs:
   run-local-rails-tests:
     runs-on: ubuntu-latest
