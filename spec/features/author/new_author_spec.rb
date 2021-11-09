@@ -12,4 +12,10 @@ describe "New author page", type: :feature do
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+
+  it "should not allow an author to be created without a last name" do
+    author = Author.create(first_name:"Alan", homepage:"http://example.com")
+    expect(author).to_not be_valid
+  end
+
 end
