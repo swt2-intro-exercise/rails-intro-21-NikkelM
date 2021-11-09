@@ -15,7 +15,6 @@ describe "Author index page", type: :feature do
 end
 
 describe 'Authors table', type: :feature do
-  before {visit authors_path}
 
   it 'exists' do
     visit authors_path
@@ -24,6 +23,7 @@ describe 'Authors table', type: :feature do
 
   it "should correctly display a table containing name and Homepage of the author and a link to the authors page" do
     author = Author.create(first_name:"Alan", last_name:"Turing", homepage:"http://wikipedia.de/Alan_Turing")
+    visit authors_path
     within 'table' do
       expect(page).to have_text('Alan Turing')
       expect(page).to have_link('Show', href: author_path(author))

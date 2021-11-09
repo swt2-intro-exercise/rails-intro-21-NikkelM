@@ -19,6 +19,7 @@ gem 'bootsnap', '>= 1.1.0', require: false # https://github.com/Shopify/bootsnap
 gem 'turbolinks', '~> 5' # https://github.com/turbolinks/turbolinks
 
 group :development, :test do
+  gem 'database_cleaner-active_record'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Rails 6 needs at least version 4.0: https://github.com/rspec/rspec-rails/issues/2177
