@@ -20,7 +20,9 @@ describe "New author page", type: :feature do
 
   it "should show the user an error when the entered author is invalid" do
     visit new_author_path
-    author = Author.create(first_name:"Alan", homepage:"http://example.com")
+    fill_in 'author[first_name]', with: "Alan"
+    fill_in 'author[homepage]', with: "http://example.com"
+    submit_form
     expect(page).to have_text('error')
   end
 

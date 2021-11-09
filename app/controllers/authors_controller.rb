@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
     end
 
     def new
-        @author = Author.new
+        @authors = Author.new
     end
 
     def create
