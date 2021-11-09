@@ -8,13 +8,17 @@ class AuthorsController < ApplicationController
     end
 
     def new
+        @author = Author.new
     end
 
     def create
         @authors = Author.new(author_params)
-
-        @authors.save
-        redirect_to @authors
+        
+        if @authors.save
+            redirect_to @authors
+        else
+            render 'new'
+        end
     end
 
 
