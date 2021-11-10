@@ -18,14 +18,14 @@ describe 'Authors edit page', type: :feature do
 	it 'should have the option to delete an author' do
 		author = Author.create(first_name:"Alan", last_name:"Turing")
 		visit edit_author_path(author)
-		expect(page).to have_link('Delete Author', href: author_path(author))
+		expect(page).to have_link('Delete', href: author_path(author))
 	end
 
 	it 'should be able to delete an author' do
 		author = Author.create(first_name:"Alan", last_name:"Turing")
 		visit edit_author_path(author)
 		count = Author.count
-		click_link('Delete Author')
+		click_link('Delete')
 		assert(Author.count < count)
 	end
 
