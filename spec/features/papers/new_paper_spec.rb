@@ -42,13 +42,15 @@ describe "New Paper page", type: :feature do
   end
 
   it "should show the associated authors names" do
-    author = Author.create(first_name:"Alan", last_name:"Turing", homepage:"http://example.com")
+	visit new_author_path
+    fill_in 'author[first_name]', with: "Alan"
+    fill_in 'author[last_name]', with: "Turing"
+    submit_form	
 
 	visit new_paper_path
     fill_in 'paper[title]', with: "Funny Name"
     fill_in 'paper[venue]', with: "HPI Conference"
     fill_in 'paper[year]', with: "2009"
-	expect(page).to have_text('Alan Turing')
 	page.check('Alan Turing')
 	submit_form
 	expect(page).to have_text('Alan Turing')

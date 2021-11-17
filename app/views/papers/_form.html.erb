@@ -28,7 +28,7 @@
 
   <div class="field">
 	<%= form.label "Authors:" %><br />
-	<%= form.collection_check_boxes :author_ids, Author.all, :name, :name do |b| %>
+	<%= form.collection_check_boxes :author_ids, Author.all, :id, :name do |b| %>
 		<div class="collection-check-box">
 		<%= b.check_box %>
 		<%= b.label %>
