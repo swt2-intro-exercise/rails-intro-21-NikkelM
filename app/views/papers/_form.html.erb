@@ -26,6 +26,8 @@
     <%= form.number_field :year %>
   </div>
 
+<!-- https://www.sitepoint.com/save-multiple-checkbox-values-database-rails/ -->
+
   <div class="field">
 	<%= form.label "Authors:" %><br />
 	<%= form.collection_check_boxes :author_ids, Author.all, :id, :name do |b| %>
