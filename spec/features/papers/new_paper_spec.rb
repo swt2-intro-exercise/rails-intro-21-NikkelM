@@ -17,9 +17,9 @@ describe "New Paper page", type: :feature do
     expect(paper).to_not be_valid
   end
 
-	it "should not allow a paper to be created with the year not being an integer" do
+  it "should not allow a paper to be created with the year not being an integer" do
     paper = Paper.create(title:"Funny Paper", venue:"HPI Conference", year:"Hello")
-		paper2 = Paper.create(title:"Funny Paper", venue:"HPI Conference", year:"2020.5")
+	paper2 = Paper.create(title:"Funny Paper", venue:"HPI Conference", year:"2020.5")
     expect(paper).to_not be_valid
   end
 
@@ -39,6 +39,19 @@ describe "New Paper page", type: :feature do
     fill_in 'paper[venue]', with: "HPI Conference"
     submit_form
     expect(page).to have_text('error')
+  end
+
+  it "should show the associated authors names" do
+    author = Author.create(first_name:"Alan", last_name:"Turing", homepage:"http://example.com")
+
+	visit new_paper_path
+    fill_in 'paper[title]', with: "Funny Name"
+    fill_in 'paper[venue]', with: "HPI Conference"
+    fill_in 'paper[year]', with: "2009"
+	expect(page).to have_text('Alan Turing')
+	page.check('Alan Turing')
+	submit_form
+	expect(page).to have_text('Alan Turing')
   end
 
 end
