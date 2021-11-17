@@ -51,9 +51,19 @@ describe "New Paper page", type: :feature do
     fill_in 'paper[title]', with: "Funny Name"
     fill_in 'paper[venue]', with: "HPI Conference"
     fill_in 'paper[year]', with: "2009"
-	page.check('Alan Turing')
+	page.select('Alan Turing')
 	submit_form
 	expect(page).to have_text('Alan Turing')
+  end
+
+  it "should have a multiple select box" do
+	visit new_author_path
+    fill_in 'author[first_name]', with: "Alan"
+    fill_in 'author[last_name]', with: "Turing"
+    submit_form	
+
+	visit new_paper_path
+    expect(page.find(:select, 'paper[author_ids][]')[:multiple]).to be_truthy
   end
 
 end

@@ -27,7 +27,7 @@
   </div>
 
 <!-- https://www.sitepoint.com/save-multiple-checkbox-values-database-rails/ -->
-
+<!--
   <div class="field">
 	<%= form.label "Authors:" %><br />
 	<%= form.collection_check_boxes :author_ids, Author.all, :id, :name do |b| %>
@@ -37,6 +37,11 @@
 		</div>
 	<% end %>
 	</div>
+-->
+<div class="field">
+	<%= form.label "Authors:" %><br />
+	<%= form.select 'author_ids', options_from_collection_for_select(Author.all, :id, :name, paper.author_ids), {},	multiple: true, size: 10 %>
+</div>
 
   <div class="actions">
     <%= form.submit %>
