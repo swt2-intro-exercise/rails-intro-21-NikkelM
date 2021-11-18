@@ -1,0 +1,19 @@
+<p>
+<strong>First Name:</strong>
+<%= @authors.first_name %>
+</p>
+
+<p>
+<strong>Last Name:</strong>
+<%= @authors.last_name %>
+</p>
+
+<p>
+<strong>Homepage:</strong>
+<%= @authors.homepage %>
+</p>
+
+<%= link_to 'Delete', author_path(@authors), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Edit', edit_author_path(@authors) %> |
+<%= link_to "Authers Overview", authors_path %> |
+<%= link_to "Back", :back %>
