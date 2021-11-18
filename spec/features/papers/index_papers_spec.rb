@@ -12,6 +12,14 @@ describe "Papers index page", type: :feature do
     should have_link('New Paper', href: new_paper_path)
   end
 
+  it "should allow filtering papers by their publishing year" do
+	paper1 = Paper.create(title:"Funny Name", venue:"HPI Conference", year:"1950")
+	paper2 = Paper.create(title:"Funny Name", venue:"HPI Conference", year:"1968")
+    visit "http://localhost:3000/papers?year=1950"
+    expect(page).to_not have_text('1968')
+	expect(page).to have_text('1950')
+  end
+
 end
 
 describe 'Papers table', type: :feature do
